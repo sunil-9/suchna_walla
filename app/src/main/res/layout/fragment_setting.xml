@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.SettingFragment">
+
+<include layout="@layout/header_layout"
+    android:id="@+id/header"/>
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_setting"
+            android:padding="10dp"
+            android:text="Share Our Application"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_setting"
+            android:padding="10dp"
+            android:text="Rate Our Application"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_setting"
+            android:padding="10dp"
+            android:text="Privacy and policy"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_setting"
+            android:padding="10dp"
+            android:text="logout"
+            android:backgroundTint="@color/red"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

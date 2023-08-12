@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "94684554852",
+    "project_id": "suchna-walla",
+    "storage_bucket": "suchna-walla.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94684554852:android:e9a289750bd60fbde12171",
+        "android_client_info": {
+          "package_name": "com.example.suchnawalla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94684554852-1ddvv73jmk74mjnjv0kt0ug11rap74bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5XgedaJVma3a2CBvBgTZM1azKdD_HMhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94684554852-1ddvv73jmk74mjnjv0kt0ug11rap74bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
