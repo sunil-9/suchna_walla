@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvShare"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -24,6 +25,7 @@
             android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/tvRate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -33,12 +35,23 @@
             android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/tvPrivacy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/background_setting"
             android:padding="10dp"
             android:text="Privacy and policy"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_setting"
+            android:padding="10dp"
+            android:text="About Us"
             android:textSize="15sp" />
 
         <TextView

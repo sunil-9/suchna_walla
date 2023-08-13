@@ -7,17 +7,22 @@ public class NoticeModel {
     String date;
     int happy;
     int sad;
+    String documentUrl;
+    String documentName;
+
 
     public NoticeModel() {
     }
 
-    public NoticeModel(String id, String title, String desc, String date, int happy, int sad) {
+    public NoticeModel(String id, String title, String desc, String date, int happy, int sad, String documentUrl, String documentName) {
         this.id = id;
         this.title = title;
         this.desc = desc;
         this.date = date;
         this.happy = happy;
         this.sad = sad;
+        this.documentUrl = documentUrl;
+        this.documentName = documentName;
     }
 
     public String getId() {
@@ -66,5 +71,21 @@ public class NoticeModel {
 
     public void setSad(int sad) {
         this.sad = sad;
+    }
+
+    public String getDocumentUrl() {
+        return documentUrl;
+    }
+
+    public void setDocumentUrl(String documentUrl) {
+        this.documentUrl = documentUrl;
+    }
+
+    public String getDocumentName() {
+        return documentName;
+    }
+
+    public void setDocumentName(String documentName) {
+        this.documentName = documentName;
     }
 }

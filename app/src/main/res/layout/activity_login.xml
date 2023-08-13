@@ -34,19 +34,36 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:background="@color/white"
+            android:background="@drawable/background_setting"
+            android:layout_marginBottom="20dp"
             android:hint="Email"
             android:padding="10dp" />
-
-        <EditText
-            android:id="@+id/etPassword"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@color/white"
-            android:hint="Password"
-            android:padding="10dp" />
+            android:background="@drawable/background_setting"
+            >
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:hint="Password"
+                android:background="@color/white"
+                android:padding="10dp"
+                />
+            <ImageView
+                android:id="@+id/ivEye"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_eye"
+                android:layout_marginRight="5dp"
+                />
+        </LinearLayout>
+
 
 
         <Button

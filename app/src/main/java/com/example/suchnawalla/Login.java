@@ -2,12 +2,23 @@ package com.example.suchnawalla;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.suchnawalla.helper.PasswordHelper;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
@@ -16,12 +27,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.example.suchnawalla.databinding.ActivityLoginBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Login extends AppCompatActivity {
     EditText etEmail, etPassword;
     TextView tvSignUp,tvForgotPassword;
     Button btnLogin;
     FirebaseAuth firebaseAuth;
+    ImageView ivEye;
+    boolean isShowPassword = false;
     private static final String TAG = "Login";
 
     @Override
@@ -34,6 +48,9 @@ public class Login extends AppCompatActivity {
         tvSignUp = findViewById(R.id.tvSignUp);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        ivEye = findViewById(R.id.ivEye);
+        ivEye.setOnClickListener(view -> isShowPassword = PasswordHelper.showPassword(etPassword,ivEye,isShowPassword));
+
         tvSignUp.setOnClickListener(v -> {
             startActivity(new Intent(Login.this, SignUp.class));
             finish();
@@ -55,6 +72,24 @@ public class Login extends AppCompatActivity {
             firebaseAuth.signInWithEmailAndPassword(etEmail.getText().toString(), etPassword.getText().toString())
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
+
+                            FirebaseMessaging.getInstance().getToken()
+                                    .addOnCompleteListener(new OnCompleteListener<String>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<String> task) {
+                                            if (!task.isSuccessful()) {
+                                                Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                                                return;
+                                            }
+                                            // Get new FCM registration token
+                                            String token = task.getResult();
+                                            // Log and toast
+                                            String msg = "token is : \n"+ token;
+                                            Log.d(TAG, msg);
+                                            Toast.makeText(Login.this, msg, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
                             startActivity(new Intent(Login.this, MainActivity.class));
                             finish();
                         } else {

@@ -1,7 +1,7 @@
 package com.example.suchnawalla.model;
 
 public class UserModel {
-    String name, email, uid;
+    String name, email, uid,phone;
 
 
     public UserModel(String name, String email, String uid) {
@@ -10,7 +10,22 @@ public class UserModel {
         this.uid = uid;
     }
 
+    public UserModel(String name, String email, String uid, String phone) {
+        this.name = name;
+        this.email = email;
+        this.uid = uid;
+        this.phone = phone;
+    }
+
     public UserModel() {
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getName() {
