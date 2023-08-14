@@ -6,16 +6,19 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.suchnawalla.R;
 import com.example.suchnawalla.helper.FileDownloader;
 import com.example.suchnawalla.model.NoticeModel;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.List;
@@ -49,6 +52,14 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
             holder.tvDesc.setText(noticeModel.getDesc());
             holder.tvHappy.setText(String.valueOf(noticeModel.getHappy()));
             holder.tvSad.setText(String.valueOf(noticeModel.getSad()));
+            if(noticeModel.getImageUrl()!=null){
+                holder.cvImage.setVisibility(View.VISIBLE);
+                Picasso
+                        .get()
+                        .load(noticeModel.getImageUrl())
+                        .into(holder.ivImage);
+            }
+
             if(noticeModel.getDocumentUrl()!=null){
                 holder.tvDownload.setVisibility(View.VISIBLE);
                 holder.tvDownload.setOnClickListener(new View.OnClickListener() {
@@ -75,8 +86,13 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
             }
 
             holder.tvSad.setOnClickListener(v -> {
-                holder.tvSad.setTextColor(context.getResources().getColor(R.color.red));
-                holder.tvHappy.setTextColor(R.color.colorPrimary);
+                Toast.makeText(context, "sad", Toast.LENGTH_SHORT).show();
+                holder.tvSad.setTextColor(R.color.red);
+                holder.tvSad.setTextAppearance(R.style.boldText);
+            });
+            holder.tvHappy.setOnClickListener(v -> {
+                holder.tvHappy.setTextColor(R.color.green);
+                holder.tvHappy.setTextAppearance(R.style.boldText);
             });
         }
 
@@ -87,6 +103,8 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
 
         public class ViewHolder extends RecyclerView.ViewHolder{
             TextView tvTitle,tvDesc,tvHappy,tvSad,tvDownload;
+            ImageView ivImage;
+            CardView cvImage;
 
             public ViewHolder(View itemView) {
                 super(itemView);
@@ -95,6 +113,8 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
                 tvHappy = itemView.findViewById(R.id.tvHappy);
                 tvSad = itemView.findViewById(R.id.tvSad);
                 tvDownload = itemView.findViewById(R.id.tvDownload);
+                ivImage = itemView.findViewById(R.id.ivImage);
+                cvImage = itemView.findViewById(R.id.cvImage);
             }
         }
 }

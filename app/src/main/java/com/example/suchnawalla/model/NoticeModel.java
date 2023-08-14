@@ -9,12 +9,14 @@ public class NoticeModel {
     int sad;
     String documentUrl;
     String documentName;
+    String imageUrl;
+
 
 
     public NoticeModel() {
     }
 
-    public NoticeModel(String id, String title, String desc, String date, int happy, int sad, String documentUrl, String documentName) {
+    public NoticeModel(String id, String title, String desc, String date, int happy, int sad, String documentUrl, String documentName, String imageUrl) {
         this.id = id;
         this.title = title;
         this.desc = desc;
@@ -23,6 +25,15 @@ public class NoticeModel {
         this.sad = sad;
         this.documentUrl = documentUrl;
         this.documentName = documentName;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getId() {

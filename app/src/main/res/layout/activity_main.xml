@@ -17,6 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:textAlignment="center"
+        app:itemTextColor="@color/textAccent"
+        app:itemIconTint="@color/primaryTextColor"
         app:menu="@menu/nav_bar"
 
 />

@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_margin="4dp"
     app:cardCornerRadius="20dp"
     app:cardMaxElevation="5dp"
     app:cardPreventCornerOverlap="true"
@@ -11,75 +10,115 @@
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDesc"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:id="@+id/tvHappy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_happy"
+                    android:drawablePadding="5dp"
+
+                    android:padding="10dp"
+                    />
+                <TextView
+                    android:id="@+id/tvSad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_sad"
+                    android:layout_gravity="center"
+                    android:drawablePadding="5dp"
+                    android:padding="10dp"
+                    />
+                <TextView
+                    android:id="@+id/tvDownload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_download"
+                    android:layout_gravity="center"
+                    android:drawablePadding="5dp"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:text=""
+                    />
+                <TextView
+                    android:id="@+id/tvComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawablePadding="5dp"
+                    android:padding="10dp"
+                    android:drawableTop="@drawable/ic_comment"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/primaryTextColor"
+            />
+        <LinearLayout
+        android:padding="10dp"
+        android:layout_width="0dp"
+        android:layout_weight="9"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Title fragment"
-        android:typeface="normal"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Title fragment"
+            android:typeface="normal"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/tvDesc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
-        android:padding="10dp"
-        android:text="Description fragment"
-        android:textSize="15sp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvDesc"
-        android:gravity="center"
-        >
         <TextView
-            android:id="@+id/tvHappy"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:id="@+id/tvDesc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_happy"
-            android:drawablePadding="5dp"
+            android:layout_below="@+id/tvTitle"
             android:padding="10dp"
-            android:text="(happy)"
-            />
-        <TextView
-            android:id="@+id/tvSad"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_sad"
-            android:layout_gravity="center"
-            android:drawablePadding="5dp"
-            android:padding="10dp"
-            android:text="(sad)"
-            />
-        <TextView
-            android:id="@+id/tvDownload"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_download"
-            android:layout_gravity="center"
-            android:drawablePadding="5dp"
-            android:padding="10dp"
+            android:text="Description fragment"
+            android:textSize="15sp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="30dp"
+            app:cardBackgroundColor="@color/primaryTextColor"
+            app:cardElevation="0dp"
             android:visibility="gone"
-            android:text=""
-            />
-        <TextView
-            android:id="@+id/tvComment"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawablePadding="5dp"
-            android:padding="10dp"
-            android:drawableLeft="@drawable/ic_comment"
-            />
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/ivImage"
+                android:src="@drawable/ic_launcher_background"
+                android:scaleType="centerCrop"
+
+                />
+        </androidx.cardview.widget.CardView>
+
+
+
     </LinearLayout>
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>
