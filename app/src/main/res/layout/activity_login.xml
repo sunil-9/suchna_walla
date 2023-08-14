@@ -72,6 +72,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorPrimary"
             android:text="Login" />
 
         <TextView

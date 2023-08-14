@@ -2,18 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>\
-    <color name="colorPrimary">#9E5EFA</color>
-    <color name="colorPrimaryDark">#643EB9</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorPrimary">#6B33FA</color>
+    <color name="colorPrimaryDark">#6B33FA</color>
+    <color name="colorAccent">#FAAA2F</color>
+    <color name="colorPrimaryVariant">#FAAA2F</color>
     <color name="red">#B51E1E</color>
     <color name="green">#1EB53A</color>
     <color name="grey">#BAB7B7</color>
 
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>
-    <color name="primaryTextColor">#7C32E6</color>
-    <color name="textAccent">#6500F6</color>
+    <color name="primaryTextColor">#FAAA2F</color>
+    <color name="textAccent">#FAAA2F</color>
     <color name="loginBkColor">#f0f0f0</color>
 
     <!--colros for card-->

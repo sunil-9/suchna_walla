@@ -58,6 +58,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
                         .get()
                         .load(noticeModel.getImageUrl())
                         .into(holder.ivImage);
+
             }
 
             if(noticeModel.getDocumentUrl()!=null){

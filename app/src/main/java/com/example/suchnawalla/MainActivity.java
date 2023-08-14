@@ -1,6 +1,7 @@
 package com.example.suchnawalla;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+    long backPressedTime=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,18 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
         );
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 3000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            Toast.makeText(this, "Press back again to leave the app.", Toast.LENGTH_LONG).show();
+        }
+        backPressedTime = System.currentTimeMillis();
 
     }
 }
