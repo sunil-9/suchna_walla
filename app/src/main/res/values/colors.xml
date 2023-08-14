@@ -7,4 +7,12 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorPrimaryVariant">#3700B3</color>
     <color name="red">#B51E1E</color>
+
+    <!--colors for modern ui-->
+    <color name="whiteTextColor">#fff</color>
+    <color name="primaryTextColor">#2661FA</color>
+    <color name="loginBkColor">#f0f0f0</color>
+
+    <!--colros for card-->
+    <color name="whiteCardColor">#fff</color>
 </resources>
