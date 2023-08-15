@@ -52,6 +52,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
             holder.tvDesc.setText(noticeModel.getDesc());
             holder.tvHappy.setText(String.valueOf(noticeModel.getHappy()));
             holder.tvSad.setText(String.valueOf(noticeModel.getSad()));
+            holder.tvDate.setText(noticeModel.getDate());
             if(noticeModel.getImageUrl()!=null){
                 holder.cvImage.setVisibility(View.VISIBLE);
                 Picasso
@@ -103,7 +104,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
         }
 
         public class ViewHolder extends RecyclerView.ViewHolder{
-            TextView tvTitle,tvDesc,tvHappy,tvSad,tvDownload;
+            TextView tvTitle,tvDesc,tvHappy,tvSad,tvDownload,tvDate;
             ImageView ivImage;
             CardView cvImage;
 
@@ -116,6 +117,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
                 tvDownload = itemView.findViewById(R.id.tvDownload);
                 ivImage = itemView.findViewById(R.id.ivImage);
                 cvImage = itemView.findViewById(R.id.cvImage);
+                tvDate = itemView.findViewById(R.id.tvDate);
             }
         }
 }

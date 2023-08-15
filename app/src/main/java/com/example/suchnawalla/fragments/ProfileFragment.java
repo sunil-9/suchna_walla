@@ -29,7 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class ProfileFragment extends Fragment {
-    TextView tvTitle;
+    TextView tvTitle,tvEmail;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     EditText etName, etPhone, etPassword, etNewPassword;
@@ -38,6 +38,7 @@ public class ProfileFragment extends Fragment {
     boolean isShowPassword = false;
     boolean isShowPassword1 = false;
     String name, phone;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -63,6 +64,7 @@ public class ProfileFragment extends Fragment {
         etPassword = view.findViewById(R.id.etPassword);
         btnSave = view.findViewById(R.id.btnSave);
         etNewPassword = view.findViewById(R.id.etNewPassword);
+        tvEmail = view.findViewById(R.id.tvEmail);
         ivEye =view.findViewById(R.id.ivEye);
         ivEye.setOnClickListener(view1 -> isShowPassword = PasswordHelper.showPassword(etPassword,ivEye,isShowPassword));
 
@@ -81,6 +83,7 @@ public class ProfileFragment extends Fragment {
                     .get()
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
+                            tvEmail.setText(documentSnapshot.getString("email"));
                             name=documentSnapshot.getString("name");
                             phone=documentSnapshot.getString("phone");
                             etName.setText(documentSnapshot.getString("name"));

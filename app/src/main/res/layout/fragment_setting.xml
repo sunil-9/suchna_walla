@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.SettingFragment">
 
 <include layout="@layout/header_layout"
@@ -13,59 +14,92 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/header"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvShare"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/background_setting"
-            android:padding="10dp"
-            android:text="Share Our Application"
-            android:textSize="15sp" />
+            app:cardElevation="10dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="15dp"
+            >
+            <TextView
+                android:id="@+id/tvShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:text="Share Our Application"
+                android:textSize="15sp" />
+        </androidx.cardview.widget.CardView>
 
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="10dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="15dp"
+            >
         <TextView
             android:id="@+id/tvRate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/background_setting"
             android:padding="10dp"
             android:text="Rate Our Application"
             android:textSize="15sp" />
-
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="10dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="15dp"
+            >
         <TextView
             android:id="@+id/tvPrivacy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/background_setting"
             android:padding="10dp"
             android:text="Privacy and policy"
             android:textSize="15sp" />
-
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="10dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="15dp"
+            >
         <TextView
             android:id="@+id/tvAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/background_setting"
             android:padding="10dp"
             android:text="About Us"
             android:textSize="15sp" />
-
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="10dp"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="@color/red"
+            >
         <TextView
             android:id="@+id/btn_logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@drawable/background_setting"
             android:padding="10dp"
-            android:text="logout"
-            android:backgroundTint="@color/red"
             android:textColor="@color/white"
+            android:text="logout"
+
             android:textAllCaps="true"
             android:textSize="15sp" />
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 

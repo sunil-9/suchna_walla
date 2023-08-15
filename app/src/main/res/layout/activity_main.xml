@@ -21,7 +21,7 @@
         android:backgroundTint="@color/white"
         android:textAlignment="center"
         app:itemTextColor="@color/textAccent"
-        app:itemIconTint="@color/primaryTextColor"
+        app:itemIconTint="@color/colorPrimary"
         app:menu="@menu/nav_bar"
 
 />

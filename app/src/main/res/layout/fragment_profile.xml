@@ -3,18 +3,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <include layout="@layout/header_layout"
         android:id="@+id/header"/>
-    <LinearLayout
-        android:id="@+id/ll_name"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_email"
         android:layout_below="@+id/header"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="15dp"
+        >
+        <LinearLayout
+
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginRight="5dp"
+
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="20sp"
+                android:padding="10dp"
+                />
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:textColor="@color/grey"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_setting"
+                android:layout_margin="1dp"
+                android:padding="10dp"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_name"
+        android:layout_below="@+id/ll_email"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="15dp"
+        >
+    <LinearLayout
+
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_marginRight="5dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -28,19 +75,29 @@
             android:id="@+id/etName"
             android:layout_width="0dp"
             android:layout_weight="2"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:background="@drawable/background_setting"
             android:layout_margin="1dp"
             android:padding="10dp"
             />
     </LinearLayout>
-    <LinearLayout
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/ll_phone"
         android:layout_below="@+id/ll_name"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="15dp"
+        >
+    <LinearLayout
+
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_marginRight="5dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -54,18 +111,30 @@
             android:id="@+id/etPhone"
             android:layout_width="0dp"
             android:layout_weight="2"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:background="@drawable/background_setting"
             android:layout_margin="1dp"
+            android:hint="Phone Number"
             android:padding="10dp"
             />
     </LinearLayout>
-    <LinearLayout
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/ll_password"
         android:layout_below="@+id/ll_phone"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="15dp"
+        >
+    <LinearLayout
+
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
+        android:layout_marginRight="5dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -80,6 +149,7 @@
             android:layout_weight="2"
             android:layout_height="wrap_content"
             android:background="@drawable/background_setting"
+            android:layout_gravity="center"
             >
             <EditText
                 android:id="@+id/etPassword"
@@ -87,6 +157,7 @@
                 android:layout_weight="2"
                 android:inputType="textPassword"
                 android:layout_height="wrap_content"
+                android:hint="Old Passwod"
                 android:layout_margin="3dp"
                 android:background="@color/white"
                 android:padding="10dp"
@@ -102,19 +173,28 @@
         </LinearLayout>
 
     </LinearLayout>
-    <LinearLayout
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/ll_new_password"
         android:layout_below="@+id/ll_password"
+        android:layout_margin="10dp"
+        app:cardElevation="20dp"
+        app:cardCornerRadius="15dp"
+        >
+    <LinearLayout
+
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="5dp"
         >
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Password:"
+            android:text="New Password:"
             android:textSize="20sp"
             android:padding="10dp"
             />
@@ -123,6 +203,7 @@
             android:layout_weight="2"
             android:layout_height="wrap_content"
             android:background="@drawable/background_setting"
+            android:layout_gravity="center"
             >
             <EditText
                 android:id="@+id/etNewPassword"
@@ -132,6 +213,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:background="@color/white"
+                android:hint="new password"
                 android:padding="10dp"
                 />
             <ImageView
@@ -144,6 +226,7 @@
                 />
         </LinearLayout>
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnSave"
@@ -154,7 +237,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Save"
         android:textColor="@color/white"
         android:textSize="20sp" />
