@@ -27,6 +27,7 @@ public class ForgotPassword extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         tvBackToSignIn.setOnClickListener(v -> {
             startActivity(new Intent(ForgotPassword.this, Login.class));
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             finish();
         });
         btnResetPassword.setOnClickListener(v -> {
@@ -38,6 +39,7 @@ public class ForgotPassword extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Snackbar.make(v, "Password reset link sent to your email", Snackbar.LENGTH_LONG).show();
                     startActivity(new Intent(ForgotPassword.this, Login.class));
+                    overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                     finish();
                 } else {
                     etEmail.setError("Email is not registered");

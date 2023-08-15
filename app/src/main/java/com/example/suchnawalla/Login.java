@@ -56,10 +56,12 @@ public class Login extends AppCompatActivity {
 
         tvSignUp.setOnClickListener(v -> {
             startActivity(new Intent(Login.this, SignUp.class));
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             finish();
         });
         tvForgotPassword.setOnClickListener(v -> {
             startActivity(new Intent(Login.this, ForgotPassword.class));
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             finish();
         });
 
@@ -102,10 +104,11 @@ public class Login extends AppCompatActivity {
                                     });
 
                             startActivity(new Intent(Login.this, MainActivity.class));
+                            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                             finish();
                         } else {
                             if (progress.isShowing()) progress.dismiss();
-                            Snackbar.make(v, "Login Failed", Snackbar.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_LONG).show();
                         }
                     });
         });

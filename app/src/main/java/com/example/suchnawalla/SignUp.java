@@ -36,6 +36,7 @@ public class SignUp extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnSignUp);
         tvSignIn.setOnClickListener(v -> {
             startActivity(new Intent(SignUp.this, Login.class));
+            overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
             finish();
         });
         btnSignUp.setOnClickListener(v -> {
@@ -68,6 +69,7 @@ public class SignUp extends AppCompatActivity {
                             .addOnSuccessListener(aVoid -> {
                                 Log.d(TAG, "onCreate: user created successfully " + firebaseAuth.getCurrentUser().getUid());
                                 startActivity(new Intent(SignUp.this, MainActivity.class));
+                                overridePendingTransition(R.anim.slide_in, R.anim.slide_out);
                                 finish();
                             })
                             .addOnFailureListener(e -> {
