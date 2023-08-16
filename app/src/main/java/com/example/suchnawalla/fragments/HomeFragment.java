@@ -1,5 +1,7 @@
 package com.example.suchnawalla.fragments;
 
+import static com.example.suchnawalla.util.Constants.KEY_COLLECTION_REACTIONS;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +21,7 @@ import com.example.suchnawalla.Login;
 import com.example.suchnawalla.R;
 import com.example.suchnawalla.adapter.NoticeAdapter;
 import com.example.suchnawalla.model.NoticeModel;
+import com.example.suchnawalla.model.ReactionModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -36,6 +39,7 @@ public class HomeFragment extends Fragment {
     FirebaseFirestore firebaseFirestore;
     RecyclerView recyclerView;
     List<NoticeModel> noticeModelList;
+    List<ReactionModel> reactionModelList;
     NoticeAdapter noticeAdapter;
 
     public HomeFragment() {
@@ -66,6 +70,7 @@ public class HomeFragment extends Fragment {
         noticeAdapter = new NoticeAdapter(getContext(), noticeModelList);
         if (firebaseAuth.getCurrentUser() != null) {
 
+
             firebaseFirestore.collection("Notice").addSnapshotListener((value, error) -> {
                 if (error != null) {
                     Log.d("TAG", "onViewCreated: " + error.getMessage());
@@ -75,11 +80,32 @@ public class HomeFragment extends Fragment {
                         NoticeModel noticeModel = documentSnapshot.toObject(NoticeModel.class);
 
                         noticeModelList.add(noticeModel);
+                        firebaseFirestore.collection(KEY_COLLECTION_REACTIONS).addSnapshotListener((innerValue, innerError) -> {
+                            if (innerError != null) {
+                                Log.d("TAG", "onViewCreated: " + innerError.getMessage());
+                            } else {
+                                for (QueryDocumentSnapshot innerDocumentSnapshot : innerValue) {
+//                                    if innerDocumentSnapshot.get("noticeID").equals(noticeModel.getId()) { then set reaction
+                                    ReactionModel reactionModel = innerDocumentSnapshot.toObject(ReactionModel.class);
+
+                                    if (reactionModel.getNoticeID().equals(noticeModel.getId()) && reactionModel.getUserID().equals(firebaseAuth.getCurrentUser().getUid())) {
+//                                        reactionModelList.add(reactionModel);
+                                        noticeModel.setReaction(reactionModel.getReaction());
+                                        noticeAdapter.notifyDataSetChanged();
+                                        break;
+                                    }
+                                }
+                            }
+                        });
+
                     }
                     noticeAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(noticeAdapter);
                 }
             });
+
+
+
         }else{
             Toast.makeText(getContext(), "Please Login First", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getContext(), Login.class));

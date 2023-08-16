@@ -10,7 +10,7 @@ public class NoticeModel {
     String documentUrl;
     String documentName;
     String imageUrl;
-
+    int reaction; // 1 for sad, 2 for happy
 
 
     public NoticeModel() {
@@ -26,6 +26,13 @@ public class NoticeModel {
         this.documentUrl = documentUrl;
         this.documentName = documentName;
         this.imageUrl = imageUrl;
+    }
+    public int getReaction() {
+        return reaction;
+    }
+
+    public void setReaction(int reaction) {
+        this.reaction = reaction;
     }
 
     public String getImageUrl() {

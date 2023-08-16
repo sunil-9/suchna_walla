@@ -27,23 +27,35 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/ivHappy"
+                    android:src="@drawable/ic_happy"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    />
                 <TextView
                     android:id="@+id/tvHappy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/ic_happy"
-                    android:drawablePadding="5dp"
-
-                    android:padding="10dp"
+                    android:paddingTop="2dp"
+                    android:layout_gravity="center"
+                    />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/ivSad"
+                    android:src="@drawable/ic_happy"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
                     />
                 <TextView
                     android:id="@+id/tvSad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/ic_sad"
                     android:layout_gravity="center"
-                    android:drawablePadding="5dp"
-                    android:padding="10dp"
+                    android:paddingTop="2dp"
                     />
                 <TextView
                     android:id="@+id/tvDownload"
