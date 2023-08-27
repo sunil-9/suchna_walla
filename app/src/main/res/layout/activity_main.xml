@@ -23,7 +23,6 @@
         app:itemTextColor="@color/textAccent"
         app:itemIconTint="@color/colorPrimary"
         app:menu="@menu/nav_bar"
-
 />
 
 </RelativeLayout>

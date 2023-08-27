@@ -48,9 +48,10 @@
                 android:layout_weight="2"
                 android:inputType="textPassword"
                 android:layout_height="wrap_content"
+
                 android:layout_margin="3dp"
                 android:hint="Password"
-                android:background="@color/white"
+                android:background="@color/themegrey"
                 android:padding="10dp"
                 />
             <ImageView

@@ -1,142 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     app:cardCornerRadius="20dp"
     app:cardMaxElevation="5dp"
     app:cardPreventCornerOverlap="true"
-    app:cardUseCompatPadding="true"
-    android:layout_height="wrap_content">
+    app:cardUseCompatPadding="true">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <LinearLayout
-            android:padding="10dp"
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tvDesc"
-                android:orientation="vertical"
                 android:gravity="center"
-                >
+                android:orientation="vertical">
+
                 <ImageView
+                    android:id="@+id/ivHappy"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:id="@+id/ivHappy"
-                    android:src="@drawable/ic_happy"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    />
+                    android:src="@drawable/ic_happy" />
+
                 <TextView
                     android:id="@+id/tvHappy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="2dp"
                     android:layout_gravity="center"
-                    />
+                    android:paddingTop="2dp" />
+
                 <ImageView
+                    android:id="@+id/ivSad"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:id="@+id/ivSad"
-                    android:src="@drawable/ic_happy"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    />
+                    android:src="@drawable/ic_happy" />
+
                 <TextView
                     android:id="@+id/tvSad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:paddingTop="2dp"
-                    />
+                    android:paddingTop="2dp" />
+
                 <TextView
                     android:id="@+id/tvDownload"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_download"
                     android:layout_gravity="center"
+                    android:drawableLeft="@drawable/ic_download"
                     android:drawablePadding="5dp"
                     android:padding="10dp"
-                    android:visibility="gone"
                     android:text=""
-                    />
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/tvComment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:drawablePadding="5dp"
-                    android:padding="10dp"
                     android:drawableTop="@drawable/ic_comment"
-                    />
+                    android:drawablePadding="5dp"
+                    android:padding="10dp" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="@color/primaryTextColor"
-            />
+            android:background="@color/colorPrimary" />
+
         <LinearLayout
-        android:padding="10dp"
-        android:layout_width="0dp"
-        android:layout_weight="9"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Title fragment"
-            android:typeface="normal"
-            android:textSize="20sp" />
+            android:layout_weight="9"
+            android:background="@color/textAccent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/tvDesc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvTitle"
-            android:padding="10dp"
-            android:text="Description fragment"
-            android:textSize="15sp" />
             <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Title fragment"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:typeface="normal" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:text="Description fragment"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:id="@+id/tvDate"
-                />
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="30dp"
-            app:cardBackgroundColor="@color/primaryTextColor"
-            app:cardElevation="0dp"
-            android:visibility="gone"
-            >
-            <ImageView
+                android:textColor="@color/white"
+                android:layout_gravity="end" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:id="@+id/ivImage"
-                android:src="@drawable/ic_launcher_background"
-                android:scaleType="centerCrop"
+                android:layout_margin="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/primaryTextColor"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="0dp">
 
-                />
-        </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background"
+
+                    />
+            </androidx.cardview.widget.CardView>
 
 
-
-    </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

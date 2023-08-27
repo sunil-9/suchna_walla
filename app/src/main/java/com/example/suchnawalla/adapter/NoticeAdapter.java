@@ -140,30 +140,6 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeAdapter.ViewHolder
         });
     }
 
-//public CompletableFuture<Integer> hasReactedAsync(NoticeModel noticeModel) {
-//    CompletableFuture<Integer> future = new CompletableFuture<>();
-//    firebaseFirestore.collection(KEY_COLLECTION_REACTIONS)
-//            .document(noticeModel.getId())
-//            .get()
-//            .addOnSuccessListener(documentSnapshot -> {
-//                ReactionModel reactionModel = documentSnapshot.toObject(ReactionModel.class);
-//                if (reactionModel != null) {
-//                    if (reactionModel.getReaction() == 1) {
-//                        future.complete(1);
-//                    } else if (reactionModel.getReaction() == 2) {
-//                        future.complete(2);
-//                    } else {
-//                        future.complete(0);
-//                    }
-//                } else {
-//                    future.complete(0);
-//                }
-//            })
-//            .addOnFailureListener(future::completeExceptionally);
-//
-//    return future;
-//}
-
     public void changeReaction(int reaction, NoticeAdapter.ViewHolder holder, NoticeModel noticeModel) {
 
         firebaseFirestore
