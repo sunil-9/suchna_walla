@@ -49,54 +49,35 @@ public class SettingFragment extends Fragment {
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
         tvAbout = view.findViewById(R.id.tvAbout);
 
-        tvShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Hey! Check out this app at:\n"+ "https://play.google.com/store/apps/details?id=com.example.suchnawalla");
-                try {
-                    startActivity(Intent.createChooser(intent, "Select an action"));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    // (handle error)
-                }
+        tvShare.setOnClickListener(view14 -> {
+            final Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, "Hey! Check out this app at:\n"+ "https://play.google.com/store/apps/details?id=com.example.suchnawalla");
+            try {
+                startActivity(Intent.createChooser(intent, "Select an action"));
+            } catch (android.content.ActivityNotFoundException ex) {
+                // (handle error)
             }
         });
-        tvRate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("market://details?id=" + requireContext().getPackageName())));
-                } catch (android.content.ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://play.google.com/store/apps/details?id=" + requireContext().getPackageName())));
-                }
-            }
-        });
-        tvPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        tvRate.setOnClickListener(view13 -> {
+            try {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://policies.google.com/privacy?hl=en-US")));
-            }
-        });
-        tvAbout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                        Uri.parse("market://details?id=" + requireContext().getPackageName())));
+            } catch (android.content.ActivityNotFoundException e) {
                 startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://github.com/sunil-9")));
+                        Uri.parse("http://play.google.com/store/apps/details?id=" + requireContext().getPackageName())));
             }
         });
+        tvPrivacy.setOnClickListener(view12 -> startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://policies.google.com/privacy?hl=en-US"))));
+        tvAbout.setOnClickListener(view1 -> startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://github.com/sunil-9"))));
 
         firebaseAuth = FirebaseAuth.getInstance();
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               firebaseAuth.signOut();
-               startActivity(new Intent(getActivity(), Login.class));
-                Toast.makeText(getContext(), "Log out Successfull", Toast.LENGTH_SHORT).show();
-            }
+        btnLogout.setOnClickListener(v -> {
+           firebaseAuth.signOut();
+           startActivity(new Intent(getActivity(), Login.class));
+            Toast.makeText(getContext(), "Log out Successfull", Toast.LENGTH_SHORT).show();
         });
         super.onViewCreated(view, savedInstanceState);
     }

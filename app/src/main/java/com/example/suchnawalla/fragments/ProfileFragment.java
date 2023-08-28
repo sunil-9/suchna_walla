@@ -88,7 +88,6 @@ public class ProfileFragment extends Fragment {
                             phone=documentSnapshot.getString("phone");
                             etName.setText(documentSnapshot.getString("name"));
                             etPhone.setText(documentSnapshot.getString("phone"));
-                            Toast.makeText(getActivity(), "Welcome " + documentSnapshot.getString("name"), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getActivity(), "No user found", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getActivity(), Login.class));
@@ -98,58 +97,55 @@ public class ProfileFragment extends Fragment {
 
         }
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (etName.getText().toString().isEmpty()) {
-                    etName.setError("Enter Name");
-                    return;
-                }
-                if(!etPassword.getText().toString().isEmpty()){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("Confirm Password");
-                    builder.setMessage("Are you sure you want to change password?");
-                    builder.setCancelable(false);
-                    builder.setPositiveButton("Yes", (dialogInterface, i) -> {
-                        firebaseAuth.signInWithEmailAndPassword(firebaseAuth.getCurrentUser().getEmail(), etPassword.getText().toString().trim())
-                                .addOnSuccessListener(authResult -> {
-                                    firebaseAuth.getCurrentUser().updatePassword(etNewPassword.getText().toString().trim())
-                                            .addOnSuccessListener(aVoid -> {
-                                                Toast.makeText(getActivity(), "Password Updated", Toast.LENGTH_SHORT).show();
-                                            })
-                                            .addOnFailureListener(e -> {
-                                                Log.d(TAG, "onClick: "+e.getMessage());
-                                                Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                            });
-                                })
-                                .addOnFailureListener(e -> {
-                                    Log.d(TAG, "onClick: "+e.getMessage());
-                                    Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                });
-
-                    });
-                    builder.setNegativeButton("No", (dialogInterface, i) -> {
-                        dialogInterface.dismiss();
-                    });
-                    builder.show();
-                }
-
-
-                if(etName.getText().toString().equals(name) && etPhone.getText().toString().equals(phone)){
-                    Toast.makeText(getActivity(), "No changes made", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                firebaseFirestore.collection("User")
-                        .document(firebaseAuth.getCurrentUser().getUid())
-                        .update("name", etName.getText().toString(),
-                                "phone", etPhone.getText().toString())
-                        .addOnSuccessListener(aVoid -> {
-                            Toast.makeText(getActivity(), "Profile Updated", Toast.LENGTH_SHORT).show();
-                        })
-                        .addOnFailureListener(e -> {
-                            Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                        });
+        btnSave.setOnClickListener(view12 -> {
+            if (etName.getText().toString().isEmpty()) {
+                etName.setError("Enter Name");
+                return;
             }
+            if(!etPassword.getText().toString().isEmpty()){
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Confirm Password");
+                builder.setMessage("Are you sure you want to change password?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Yes", (dialogInterface, i) -> {
+                    firebaseAuth.signInWithEmailAndPassword(firebaseAuth.getCurrentUser().getEmail(), etPassword.getText().toString().trim())
+                            .addOnSuccessListener(authResult -> {
+                                firebaseAuth.getCurrentUser().updatePassword(etNewPassword.getText().toString().trim())
+                                        .addOnSuccessListener(aVoid -> {
+                                            Toast.makeText(getActivity(), "Password Updated", Toast.LENGTH_SHORT).show();
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Log.d(TAG, "onClick: "+e.getMessage());
+                                            Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        });
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.d(TAG, "onClick: "+e.getMessage());
+                                Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            });
+
+                });
+                builder.setNegativeButton("No", (dialogInterface, i) -> {
+                    dialogInterface.dismiss();
+                });
+                builder.show();
+            }
+
+
+            if(etName.getText().toString().equals(name) && etPhone.getText().toString().equals(phone)){
+                Toast.makeText(getActivity(), "No changes made", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            firebaseFirestore.collection("User")
+                    .document(firebaseAuth.getCurrentUser().getUid())
+                    .update("name", etName.getText().toString(),
+                            "phone", etPhone.getText().toString())
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(getActivity(), "Profile Updated", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
         });
 
         super.onViewCreated(view, savedInstanceState);
