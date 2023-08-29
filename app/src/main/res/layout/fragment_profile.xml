@@ -24,8 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="horizontal"
-            android:layout_marginRight="5dp"
-
             >
             <TextView
                 android:layout_width="0dp"
@@ -41,9 +39,8 @@
                 android:layout_weight="2"
                 android:layout_gravity="center"
                 android:textColor="@color/grey"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/background_setting"
-                android:layout_margin="1dp"
                 android:padding="10dp"
                 />
         </LinearLayout>
@@ -62,7 +59,6 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginRight="5dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -76,11 +72,11 @@
             android:id="@+id/etName"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_setting"
-            android:layout_margin="1dp"
             android:padding="10dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_setting"
+
             />
     </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -98,7 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginRight="5dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -113,9 +108,8 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_gravity="center"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/background_setting"
-            android:layout_margin="1dp"
             android:hint="Phone Number"
             android:padding="10dp"
             />
@@ -135,7 +129,6 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginRight="5dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -148,19 +141,19 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_setting"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:gravity="center"
             >
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:inputType="textPassword"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:hint="Old Passwod"
                 android:layout_margin="3dp"
-                android:background="@color/white"
+            android:background="@drawable/background_setting"
                 android:padding="10dp"
                 />
             <ImageView
@@ -189,7 +182,6 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginEnd="5dp"
         >
         <TextView
             android:layout_width="0dp"
@@ -202,18 +194,18 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_setting"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+                android:background="@drawable/background_setting"
             >
             <EditText
                 android:id="@+id/etNewPassword"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:inputType="textPassword"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="3dp"
-                android:background="@color/white"
+                android:background="@drawable/background_setting"
                 android:hint="new password"
                 android:padding="10dp"
                 />
