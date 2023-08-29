@@ -93,5 +93,3 @@ This project is licensed under the [MIT License](./LICENSE).
 ---
 
 Thank you for using Suchna Walla! If you have any questions or need further assistance, don't hesitate to contact us.
-
-**Disclaimer:** This readme is a template and should be customized to suit your project's specifics. Make sure to replace placeholders with actual information and adapt the instructions accordingly.
